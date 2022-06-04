@@ -18,8 +18,11 @@ radio.onReceivedString(function (receivedString) {
             radio.sendValue(convertToText(c_index + 1), radio.receivedPacket(RadioPacketProperty.SerialNumber))
         }
     } else if (receivedString == "movement") {
-        datalogger.log(datalogger.createCV("lane", convertToText(c_index + 1)), datalogger.createCV("time", c_time - start_time))
+        datalogger.log(datalogger.createCV("lane", convertToText(c_index + 1)), datalogger.createCV("time", c_time - start_time), datalogger.createCV("system", 1))
     }
+})
+radio.onReceivedValue(function (name, value) {
+    datalogger.log(datalogger.createCV("lane", name), datalogger.createCV("time", value), datalogger.createCV("system", 0))
 })
 let c_time = 0
 let c_index = 0
