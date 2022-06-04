@@ -14,6 +14,7 @@ radio.onReceivedString(function (receivedString) {
         } else {
             if (c_index < 0) {
                 list.push(radio.receivedPacket(RadioPacketProperty.SerialNumber))
+                c_index = list.indexOf(radio.receivedPacket(RadioPacketProperty.SerialNumber))
             }
             radio.sendValue(convertToText(c_index + 1), radio.receivedPacket(RadioPacketProperty.SerialNumber))
         }
