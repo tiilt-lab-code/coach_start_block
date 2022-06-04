@@ -1,7 +1,7 @@
 input.onButtonPressed(Button.AB, function () {
     radio.sendString("set")
-    basic.pause(randint(2000, 4000))
-    radio.sendString("set")
+    basic.pause(randint(4000, 6000))
+    radio.sendString("start")
     music.playTone(262, music.beat(BeatFraction.Whole))
     start_time = control.millis()
 })
@@ -18,11 +18,9 @@ radio.onReceivedString(function (receivedString) {
             radio.sendValue(convertToText(c_index + 1), radio.receivedPacket(RadioPacketProperty.SerialNumber))
         }
     } else if (receivedString == "movement") {
-        c_time = radio.receivedPacket(RadioPacketProperty.Time) - control.millis()
-        datalogger.log(datalogger.createCV(convertToText(c_index + 1), c_time), datalogger.createCV("", 0))
+        datalogger.log(datalogger.createCV("lane", convertToText(c_index + 1)), datalogger.createCV("time", radio.receivedPacket(RadioPacketProperty.Time)))
     }
 })
-let c_time = 0
 let c_index = 0
 let start_time = 0
 let list: number[] = []
