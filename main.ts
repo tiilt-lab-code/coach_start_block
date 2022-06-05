@@ -1,9 +1,10 @@
 input.onButtonPressed(Button.AB, function () {
+    reaction_times = []
     radio.sendString("set")
     basic.pause(randint(4000, 6000))
     radio.sendString("start")
-    music.playTone(262, music.beat(BeatFraction.Whole))
     start_time = control.millis()
+    music.playTone(262, music.beat(BeatFraction.Whole))
 })
 radio.onReceivedString(function (receivedString) {
     c_index = list.indexOf(radio.receivedPacket(RadioPacketProperty.SerialNumber))
@@ -24,10 +25,18 @@ radio.onReceivedString(function (receivedString) {
 })
 radio.onReceivedValue(function (name, value) {
     datalogger.log(datalogger.createCV("lane", name), datalogger.createCV("time", value), datalogger.createCV("system", 0))
+    reaction_times.insertAt(parseFloat(name) - 1, value)
+})
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    for (let index = 0; index <= reaction_times.length; index++) {
+        basic.showNumber(index + 1)
+        basic.showNumber(list[index])
+    }
 })
 let c_time = 0
 let c_index = 0
 let start_time = 0
+let reaction_times: number[] = []
 let list: number[] = []
 basic.showLeds(`
     . # # # .
@@ -39,6 +48,4 @@ basic.showLeds(`
 radio.setGroup(11)
 list = []
 datalogger.includeTimestamp(FlashLogTimeStampFormat.Milliseconds)
-basic.forever(function () {
-	
-})
+reaction_times = []
