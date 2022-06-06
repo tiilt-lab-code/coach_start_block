@@ -30,7 +30,21 @@ radio.onReceivedValue(function (name, value) {
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     for (let index = 0; index <= reaction_times.length; index++) {
         basic.showNumber(index + 1)
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            . . # . .
+            . . # . .
+            . . # . .
+            `)
         basic.showNumber(list[index])
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            . . # . .
+            . . # . .
+            . . # . .
+            `)
     }
 })
 let c_time = 0
