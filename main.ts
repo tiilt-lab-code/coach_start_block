@@ -37,7 +37,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . # . .
             . . # . .
             `)
-        basic.showNumber(list[index])
+        basic.showNumber(reaction_times[index])
         basic.showLeds(`
             . . # . .
             . . # . .

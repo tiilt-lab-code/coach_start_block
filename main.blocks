@@ -10,7 +10,7 @@
         . . # . . 
         . . # . . 
         . . # . .
-        `</field><next><block type="device_show_number" id="{oJX0*(0|xtA9YJ051q|"><value name="number"><block type="lists_index_get" id="q,jci+4R2x@q8zRK1@}5"><value name="LIST"><block type="variables_get" id="5_=!4G=kj1Jo@td*jwW2"><field name="VAR" id="C0N}bSSA#GL$^A/N8C+-">list</field></block></value><value name="INDEX"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="variables_get" id="et2+$-aI6ptJ*0X=R_[."><field name="VAR" id="Wc7aME`!{PIp|=5q7ro8">index</field></block></value></block></value><next><block type="device_show_leds" id="ST/S2-6A3*~x*}w?hWK*"><field name="LEDS">`
+        `</field><next><block type="device_show_number" id="{oJX0*(0|xtA9YJ051q|"><value name="number"><block type="lists_index_get" id="q,jci+4R2x@q8zRK1@}5"><value name="LIST"><block type="variables_get" id="5_=!4G=kj1Jo@td*jwW2"><field name="VAR" id="=;Ncc#f`%IjE~8opKafm">reaction_times</field></block></value><value name="INDEX"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="variables_get" id="et2+$-aI6ptJ*0X=R_[."><field name="VAR" id="Wc7aME`!{PIp|=5q7ro8">index</field></block></value></block></value><next><block type="device_show_leds" id="ST/S2-6A3*~x*}w?hWK*"><field name="LEDS">`
         . . # . . 
         . . # . . 
         . . # . . 
