@@ -10,7 +10,7 @@ radio.onReceivedString(function (receivedString) {
     c_index = list.indexOf(radio.receivedPacket(RadioPacketProperty.SerialNumber))
     c_time = control.millis()
     if (receivedString == "pair") {
-        if (list.length >= 8) {
+        if (list.length >= 4) {
             radio.sendString("full")
         } else {
             if (c_index < 0) {
@@ -20,11 +20,19 @@ radio.onReceivedString(function (receivedString) {
             radio.sendValue(convertToText(c_index + 1), radio.receivedPacket(RadioPacketProperty.SerialNumber))
         }
     } else if (receivedString == "movement") {
-        datalogger.log(datalogger.createCV("lane", convertToText(c_index + 1)), datalogger.createCV("time", c_time - start_time), datalogger.createCV("system", 1))
+        datalogger.log(
+        datalogger.createCV("lane", convertToText(c_index + 1)),
+        datalogger.createCV("time", c_time - start_time),
+        datalogger.createCV("system", 1)
+        )
     }
 })
 radio.onReceivedValue(function (name, value) {
-    datalogger.log(datalogger.createCV("lane", name), datalogger.createCV("time", value), datalogger.createCV("system", 0))
+    datalogger.log(
+    datalogger.createCV("lane", name),
+    datalogger.createCV("time", value),
+    datalogger.createCV("system", 0)
+    )
     reaction_times.insertAt(parseFloat(name) - 1, value)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
