@@ -1,7 +1,7 @@
 input.onButtonPressed(Button.AB, function () {
     reaction_times = []
     radio.sendString("set")
-    basic.pause(randint(4000, 6000))
+    basic.pause(randint(1500, 3000))
     radio.sendString("start")
     start_time = control.millis()
     music.playTone(262, music.beat(BeatFraction.Whole))
